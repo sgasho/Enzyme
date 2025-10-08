@@ -69,6 +69,7 @@ jobs:
           --enable-ninja \
           --disable-docs \
           --enable-ccache
+          
     - name: Build Rust compiler stage 1
       working-directory: rust
       run: |
