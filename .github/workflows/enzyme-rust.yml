@@ -18,7 +18,7 @@ jobs:
       fail-fast: false
       matrix:
         os: [linux-x86-n2-32]
-        commit: [839222065a44ac21c15df68ed2f2f3c0127b0b8e]
+        commit: [82224f6891c7e7aa0c6c865aa825100b3ea2d0fb]
     
     timeout-minutes: 90
 
