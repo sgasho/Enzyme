@@ -13,7 +13,6 @@ jobs:
   rust-autodiff:
     name: Rust Autodiff ${{ matrix.os }}
     runs-on: ${{ matrix.os }}
-    
     strategy:
       fail-fast: false
       matrix:
@@ -26,14 +25,20 @@ jobs:
       image: ${{ (contains(matrix.os, 'linux') && 'ghcr.io/enzymead/reactant-docker-images@sha256:91e1edb7a7c869d5a70db06e417f22907be0e67ca86641d48adcea221fedc674' ) || '' }}
     
     steps:
+    - name: Prepare env
+      run: |
+        echo "CCACHE_DIR=${GITHUB_WORKSPACE}/.ccache" >> "${GITHUB_ENV}"
     - name: Install dependencies
       run: |
         apt-get update
         apt-get install -y ninja-build cmake ccache nodejs
+    - name: Prepare ccache directory
+      run: |
+        mkdir -p "$CCACHE_DIR"
     - name: Cache ccache
       uses: actions/cache@v4
       with:
-        path: ~/.cache/ccache
+        path: ${{ env.CCACHE_DIR }}
         key: ccache-rust-${{ matrix.os }}-${{ matrix.commit }}
     - name: Install Rust toolchain
       run: |
@@ -69,7 +74,6 @@ jobs:
           --enable-ninja \
           --disable-docs \
           --enable-ccache
-          
     - name: Build Rust compiler stage 1
       working-directory: rust
       run: |
