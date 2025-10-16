@@ -70,13 +70,13 @@ jobs:
           --enable-llvm-enzyme \
           --release-channel=nightly \
           --enable-llvm-assertions \
-          --enable-clang \
           --enable-lld \
           --disable-optimize-llvm \
           --enable-option-checking \
           --enable-ninja \
           --disable-docs \
-          --enable-ccache
+          --enable-ccache \
+          --set=llvm.targets="X86"
     - name: Build Rust compiler stage 1
       working-directory: rust
       run: |
