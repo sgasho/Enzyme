@@ -34,7 +34,7 @@ jobs:
         apt-get install -y ninja-build cmake ccache nodejs
     - name: ccache --show-stats
       run: |
-        ccache --show-stats
+        ccache --show-stats --verbose
     - name: Prepare ccache directory
       run: |
         mkdir -p "$CCACHE_DIR"
@@ -92,4 +92,4 @@ jobs:
         ./x test --stage 1 tests/ui/feature-gates/feature-gate-autodiff.rs
     - name: ccache --show-stats
       run: |
-        ccache --show-stats
+        ccache --show-stats --verbose
