@@ -32,9 +32,6 @@ jobs:
       run: |
         apt-get update
         apt-get install -y ninja-build cmake ccache nodejs
-    - name: ccache --show-stats
-      run: |
-        ccache --show-stats --verbose
     - name: Prepare ccache directory
       run: |
         mkdir -p "$CCACHE_DIR"
@@ -57,6 +54,9 @@ jobs:
       with:
         path: ${{ env.CCACHE_DIR }}
         key: ccache-rust-${{ matrix.os }}-${{ matrix.commit }}
+    - name: ccache --show-stats
+      run: |
+        ccache --show-stats --verbose
     - name: Configure Rust compiler
       run: |
         . ~/.cargo/env
