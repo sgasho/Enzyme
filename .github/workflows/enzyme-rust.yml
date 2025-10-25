@@ -49,7 +49,6 @@ jobs:
         repository: rust-lang/rust
         ref: ${{ matrix.commit }}
         path: rust
-        fetch-depth: 0
     - name: Cache ccache
       uses: actions/cache@v4
       with:
