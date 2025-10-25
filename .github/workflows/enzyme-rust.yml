@@ -71,8 +71,7 @@ jobs:
           --enable-option-checking \
           --disable-docs \
           --enable-ccache \
-          --enable-llvm-assertions \
-          --set llvm.download-ci-llvm=true
+          --enable-llvm-assertions
     - name: Build Rust compiler stage 1
       working-directory: rust
       run: |
