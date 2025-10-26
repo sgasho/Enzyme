@@ -72,8 +72,7 @@ jobs:
           --disable-docs \
           --enable-ccache \
           --enable-llvm-assertions \
-          --enable-llvm-link-shared \
-          --set=llvm.targets="X86"
+          --enable-llvm-link-shared
     - name: Build Rust compiler stage 1
       working-directory: rust
       run: |
