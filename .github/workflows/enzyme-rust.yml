@@ -54,6 +54,7 @@ jobs:
       with:
         path: ${{ env.CCACHE_DIR }}
         key: ccache-rust-${{ matrix.os }}-${{ matrix.commit }}
+        save-always: true
     - name: ccache --show-stats
       run: |
         ccache --show-stats --verbose
