@@ -70,7 +70,8 @@ jobs:
           --enable-option-checking \
           --disable-docs \
           --enable-ccache \
-          --enable-llvm-assertions
+          --enable-llvm-assertions \
+          --enable-llvm-link-shared
     - name: Build Rust compiler stage 1
       working-directory: rust
       run: |
