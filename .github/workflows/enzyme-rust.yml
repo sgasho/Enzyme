@@ -30,8 +30,8 @@ jobs:
         echo "CCACHE_DIR=${GITHUB_WORKSPACE}/.ccache" >> "${GITHUB_ENV}"
     - name: Install dependencies
       run: |
-        apt-get update
-        apt-get install -y ninja-build cmake ccache nodejs
+        sudo apt-get update
+        sudo apt-get install -y ninja-build cmake ccache nodejs
     - name: Prepare ccache directory
       run: |
         mkdir -p "$CCACHE_DIR"
