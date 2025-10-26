@@ -19,7 +19,7 @@ jobs:
         os: [ubuntu-latest]
         commit: [b2ee1b333aea9951c3eefa4967098cc763de59ca]
     
-    timeout-minutes: 90
+    timeout-minutes: 120
 
     container:
       image: ${{ (contains(matrix.os, 'linux') && 'ghcr.io/enzymead/reactant-docker-images@sha256:91e1edb7a7c869d5a70db06e417f22907be0e67ca86641d48adcea221fedc674' ) || '' }}
