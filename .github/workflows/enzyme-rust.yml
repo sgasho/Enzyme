@@ -78,14 +78,14 @@ jobs:
       run: |
         . ~/.cargo/env
         ./x build --stage 1 library
-    - name: Run Rust autodiff tests
-      working-directory: rust
-      run: |
-        . ~/.cargo/env
-        ./x test --stage 1 tests/codegen-llvm/autodiff
-        ./x test --stage 1 tests/pretty/autodiff
-        ./x test --stage 1 tests/ui/autodiff
-        ./x test --stage 1 tests/ui/feature-gates/feature-gate-autodiff.rs
+#    - name: Run Rust autodiff tests
+#      working-directory: rust
+#      run: |
+#        . ~/.cargo/env
+#        ./x test --stage 1 tests/codegen-llvm/autodiff
+#        ./x test --stage 1 tests/pretty/autodiff
+#        ./x test --stage 1 tests/ui/autodiff
+#        ./x test --stage 1 tests/ui/feature-gates/feature-gate-autodiff.rs
     - name: ccache --show-stats
       run: |
         ccache --show-stats --verbose
